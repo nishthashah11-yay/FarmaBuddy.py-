@@ -46,18 +46,37 @@ temperature = st.sidebar.slider("AI Creativity Level", 0.2, 0.9, 0.5)
 def build_prompt():
     return f"""
 You are an expert agricultural advisor.
-Farmer details:
-Region: {region}
-Location: {location}
-Crop stage: {crop_stage}
-Priorities: {', '.join(priority)}
 
-Task:
-1. Give 3 clear farming recommendations.
-2. Format as bullet points.
-3. After each recommendation, explain WHY it is useful.
-4. Keep language simple and practical.
+Farmer Details:
+- Region: {region}
+- Location: {location}
+- Crop Stage: {crop_stage}
+- Priorities: {', '.join(priority)}
+
+TASK:
+Provide EXACTLY 3 farming recommendations.
+
+FORMAT RULES (IMPORTANT):
+- Number each recommendation as 1, 2, and 3.
+- Each recommendation must have:
+  • A clear action
+  • A short explanation starting with "Why:"
+- Write each recommendation on a NEW line.
+- Do NOT merge recommendations into one sentence.
+- Use simple, practical language for farmers.
+
+OUTPUT FORMAT (follow strictly):
+
+1. Recommendation:
+   Why:
+
+2. Recommendation:
+   Why:
+
+3. Recommendation:
+   Why:
 """
+
 
 # ---------------- MAIN ACTION ----------------
 if st.button("🌾 Get Smart Advice"):
