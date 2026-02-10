@@ -45,19 +45,56 @@ temperature = st.sidebar.slider("AI Creativity Level", 0.2, 0.9, 0.5)
 # ---------------- PROMPT ENGINE ----------------
 def build_prompt():
     return f"""
-You are an expert agricultural advisor.
-Farmer details:
-Region: {region}
-Location: {location}
-Crop stage: {crop_stage}
-Priorities: {', '.join(priority)}
+You are a highly experienced agricultural advisor with deep knowledge of
+crop management, soil health, irrigation, pest control, and climate-based farming.
 
-Task:
-1. Give 3 clear farming recommendations.
-2. Format as bullet points.
-3. After each recommendation, explain WHY it is useful.
-4. Keep language simple and practical.
+FARMER PROFILE:
+- Region: {region}
+- Location: {location}
+- Crop Growth Stage: {crop_stage}
+- Farmer Priorities: {', '.join(priority)}
+
+OBJECTIVE:
+Help the farmer improve yield, reduce risk, and manage resources efficiently.
+
+TASK INSTRUCTIONS:
+Provide EXACTLY 3 detailed farming recommendations tailored to the farmer profile.
+
+FOR EACH RECOMMENDATION, YOU MUST:
+1. Clearly state the action the farmer should take.
+2. Explain WHY this action is important at the current crop stage.
+3. Describe HOW it helps with the farmer’s stated priorities.
+4. Mention any risk if the advice is ignored (if applicable).
+
+FORMAT RULES (STRICT):
+- Use numbered bullet points (1, 2, 3).
+- Each recommendation must be at least 3–4 lines long.
+- Do NOT combine recommendations.
+- Keep language simple, practical, and farmer-friendly.
+- Avoid scientific jargon.
+- Use line breaks for readability.
+
+OUTPUT FORMAT (FOLLOW EXACTLY):
+
+1. Recommendation:
+   - What to do:
+   - Why it is useful:
+   - How it helps the farmer:
+   - Risk if ignored:
+
+2. Recommendation:
+   - What to do:
+   - Why it is useful:
+   - How it helps the farmer:
+   - Risk if ignored:
+
+3. Recommendation:
+   - What to do:
+   - Why it is useful:
+   - How it helps the farmer:
+   - Risk if ignored:
 """
+
 
 # ---------------- MAIN ACTION ----------------
 if st.button("🌾 Get Smart Advice"):
