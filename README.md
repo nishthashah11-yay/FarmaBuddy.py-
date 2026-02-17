@@ -33,7 +33,8 @@ This project transforms the FA-1 storyboard into a fully functional and deployed
 ## 🚀 Live Deployment Link
 
 🔗 **Streamlit App URL:**  
-https://xdymq9ydmjn9xnab2qrigi.streamlit.app/
+https://bq6mtdke8ffs8icpyv7szu.streamlit.app/
+
 
 
 ---
